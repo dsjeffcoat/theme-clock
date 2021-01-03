@@ -11,12 +11,12 @@ html {
 }
 
 html.dark {
-    --primary-color: #248232;
-    --secondary-color: #333;
+    --primary-color: #333;
+    --secondary-color: #248232;
 }
 
 html.dark {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
     color: var(--accent-color);
 }
 
@@ -69,7 +69,19 @@ body {
     left: 50%;
     height: 65px;
     width: 3px;
-    transform-origin: botton-center;
+    transform-origin: bottom center;
+    transition: all 0.5s ease-in;
+}
+
+html.dark .needle {
+    background-color: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 65px;
+    width: 3px;
+    transform-origin: bottom center;
+    transition: all 0.5s ease-in;
 }
 
 .needle.hour {
@@ -81,14 +93,36 @@ body {
     height: 100px;
 }
 
+html.dark .needle.minute {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 100px;
+}
+
 .needle.second {
     transform: translate(-50%, -100%) rotate(0deg);
     height: 100px;
     background-color: var(--secondary-color);
 }
 
+html.dark .needle.second {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 100px;
+    background-color: var(--accent-color);
+}
+
 .center-point {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+html.dark .center-point {
+    background-color: var(--accent-color);
     width: 10px;
     height: 10px;
     position: absolute;
@@ -99,6 +133,18 @@ body {
 }
 
 .center-point::after {
+    content: '';
+    background-color: var(--primary-color);
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+html.dark .center-point::after {
     content: '';
     background-color: var(--secondary-color);
     width: 5px;
@@ -117,12 +163,26 @@ body {
 .date {
     color: #aaa;
     font-size: 14px;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.9px;
     text-transform: uppercase;
 }
 
 .date .circle {
     background-color: var(--secondary-color);
+    color: var(--accent-color);
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 18px;
+    transition: all 0.5s ease-in;
+    font-size: 12px;
+}
+
+html.dark .date .circle {
+    background-color: #333;
     color: var(--accent-color);
     border-radius: 50%;
     height: 18px;
